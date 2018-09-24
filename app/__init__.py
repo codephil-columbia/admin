@@ -9,12 +9,12 @@ import admin_secrets
 app = Flask(__name__)
 app.config.from_object('config.Config')
 
-engine = create_engine('postgres://{}:{}@{}:{}/{}', 
+engine = create_engine('postgres://{}:{}@{}:{}/{}'.format(
   admin_secrets.user, 
   admin_secrets.password, 
   admin_secrets.host, 
   admin_secrets.port,
-  admin_secrets.database)
+  admin_secrets.database))
 
   
 @app.before_request
