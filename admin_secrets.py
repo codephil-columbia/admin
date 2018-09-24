@@ -1,0 +1,5 @@
+admin_secrets_user=codephil
+admin_secrets_password=codephil!
+admin_secrets_host=lavazares-db1.cnodp99ehkll.us-west-2.rds.amazonaws.com
+admin_secrets_port=5432
+admin_secrets_database=lavazaresdb
