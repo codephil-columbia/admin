@@ -4,12 +4,19 @@ from flask import Flask, g, render_template
 from sqlalchemy import create_engine
 
 from config import Config
+import admin_secrets
 
 app = Flask(__name__)
 app.config.from_object('config.Config')
 
-engine = create_engine('postgres://codephil:codephil!@lavazares-db1.cnodp99ehkll.us-west-2.rds.amazonaws.com:5432/lavazaresdb')
+engine = create_engine('postgres://{}:{}@{}:{}/{}', 
+  admin_secrets.user, 
+  admin_secrets.password, 
+  admin_secrets.host, 
+  admin_secrets.port,
+  admin_secrets.database)
 
+  
 @app.before_request
 def before_request():
   try:
